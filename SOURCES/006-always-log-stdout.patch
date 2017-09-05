@@ -1,0 +1,13 @@
+diff --git a/rpython/translator/platform/__init__.py b/rpython/translator/platform/__init__.py
+index 051668b..6e59acc 100644
+--- a/rpython/translator/platform/__init__.py
++++ b/rpython/translator/platform/__init__.py
+@@ -140,6 +140,8 @@ class Platform(object):
+         self._handle_error(returncode, stdout, stderr, outname)
+ 
+     def _handle_error(self, returncode, stdout, stderr, outname):
++        for line in stdout.splitlines():
++            log.message(line)
+         if returncode != 0:
+             errorfile = outname.new(ext='errors')
+             errorfile.write(stderr, 'wb')

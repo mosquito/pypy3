@@ -1,0 +1,13 @@
+diff --git a/rpython/tool/ansi_print.py b/rpython/tool/ansi_print.py
+index bfa40be..29dd332 100644
+--- a/rpython/tool/ansi_print.py
++++ b/rpython/tool/ansi_print.py
+@@ -7,7 +7,7 @@ from py.io import ansi_print
+ from rpython.tool.ansi_mandelbrot import Driver
+ 
+ 
+-isatty = getattr(sys.stderr, 'isatty', lambda: False)
++isatty = lambda: False
+ mandelbrot_driver = Driver()
+ wrote_dot = False     # global shared state
+ 

@@ -1,0 +1,24 @@
+diff --git a/lib_pypy/_pypy_interact.py b/lib_pypy/_pypy_interact.py
+index 9542f54..5e44fb4 100644
+--- a/lib_pypy/_pypy_interact.py
++++ b/lib_pypy/_pypy_interact.py
+@@ -13,19 +13,6 @@ def interactive_console(mainmodule=None, quiet=False):
+         sys.ps1 = '>>>> '
+     if not hasattr(sys, 'ps2'):
+         sys.ps2 = '.... '
+-    #
+-    if not quiet:
+-        try:
+-            from _pypy_irc_topic import some_topic
+-            text = "%s: ``%s''" % ( irc_header, some_topic())
+-            while len(text) >= 80:
+-                i = text[:80].rfind(' ')
+-                print(text[:i])
+-                text = text[i+1:]
+-            print(text)
+-        except ImportError:
+-            pass
+-    #
+     run_interactive = run_simple_interactive_console
+     try:
+         if not os.isatty(sys.stdin.fileno()):
