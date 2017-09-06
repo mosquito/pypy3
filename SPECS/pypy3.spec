@@ -650,6 +650,7 @@ cp -a rpython/jit/tool/pypytrace-mode.elc %{buildroot}/%{_emacs_sitelispdir}/pyp
 %endif
 
 # Install macros for rpm:
+mkdir -p %{buildroot}/%{_rpmconfigdir}/macros.d
 install -m0644 -p -D -t %{buildroot}/%{_rpmconfigdir}/macros.d %{SOURCE2}
 
 # Remove files we don't want:
